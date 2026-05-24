@@ -21,16 +21,21 @@
             <p class="bold-text">የማተሚያ ቤት ስም: BERHANENA SELAM PRINTING ENTERPRISE</p>
         </div>
     </div>
-SSSS
     <script>
-        // Function to get the URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const invoiceNum = urlParams.get('invoicenumber');
-
-        // If a number exists in the URL, update the text
-        if (invoiceNum) {
-            document.getElementById('invoice-id').innerText = "የደረሰኝ መለያ ቁጥር: " + invoiceNum;
-        }
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const invoiceNum = urlParams.get('invoicenumber');
+            const el = document.getElementById('invoice-id');
+            if (!el) {
+                console.warn('invoice-id element not found in DOM.');
+                return;
+            }
+            if (invoiceNum) {
+                el.textContent = 'የደረሰኝ መለያ ቁጥር: ' + invoiceNum;
+            } else {
+                console.warn('URL parameter "invoicenumber" is missing.');
+            }
+        })();
     </script>
 </body>
 </html>
