@@ -23,18 +23,19 @@
     </div>
     <script>
         (function() {
+            const paramNames = ['invoicenumber', 'invoice', 'id'];
             const urlParams = new URLSearchParams(window.location.search);
-            const invoiceNum = urlParams.get('invoicenumber');
-            const el = document.getElementById('invoice-id');
-            if (!el) {
-                console.warn('invoice-id element not found in DOM.');
-                return;
+            let invoiceNum = null;
+            for (const name of paramNames) {
+                const v = urlParams.get(name);
+                if (v && v.trim()) { invoiceNum = v.trim(); break; }
             }
+            const el = document.getElementById('invoice-id');
+            if (!el) return;
             if (invoiceNum) {
                 el.textContent = 'የደረሰኝ መለያ ቁጥር: ' + invoiceNum;
-            } else {
-                console.warn('URL parameter "invoicenumber" is missing.');
             }
+            // If no param provided, keep the default value already in the HTML.
         })();
     </script>
 </body>
