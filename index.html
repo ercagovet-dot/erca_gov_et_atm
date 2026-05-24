@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ministry of Revenue Receipt</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="receipt-container">
@@ -14,7 +14,7 @@
             <p id="invoice-id">የደረሰኝ መለያ ቁጥር: 0000901</p>
             <p>የግብር ከፋይ መለያ ቁጥር: 0065964513</p>
             <p>የደረሰኝ ዓይነት: CASH SALES INVOICE/VAT</p>
-            <p>የግብር ከፋይ ስም: ዮርዳኖሰ አስመሮም ብርሀነመስቀል</p>
+            <p>የግብር ከፋይ ስም: ዮርዳኖስ አስመሮም ብርሀነመስቀል</p>
             <p>የግብር ከፋይ ታክስ ማዕከል: ARADA NO.1 MEDIUM TAXPAYERS BRANCH OFFICE</p>
             <p>የቫት/VAT/ መለያ ቁጥር: 12640907119</p>
             <p>የቫት/VAT/ ቁጥር: 389271119</p>
@@ -27,7 +27,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const invoiceNum = urlParams.get('invoicenumber');
 
-        // If a number exists in the URL, update the text
+        // If a number exists in the URL, update the text dynamically
         if (invoiceNum) {
             document.getElementById('invoice-id').innerText = "የደረሰኝ መለያ ቁጥር: " + invoiceNum;
         }
